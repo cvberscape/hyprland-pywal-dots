@@ -4,7 +4,7 @@
   home.username = "cvberscape";
   home.homeDirectory = "/home/cvberscape";
 
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 
   nixpkgs.config.allowUnfree = true;
 
@@ -22,7 +22,6 @@
   home.packages = with pkgs; [
     android-studio
     brave 
-    stdenv.cc.cc.lib
     watchman
     vesktop
     heroic
