@@ -6,7 +6,7 @@ STYLE_SETTINGS_DIR="$HOME/obsidian/.obsidian/plugins/obsidian-style-settings"
 ICON_DIR="$HOME/.local/share/icons/wallpapers"
 
 # check dependencies
-for cmd in rofi swww wal python3 oomox-cli jq; do
+for cmd in rofi awww wal python3 oomox-cli jq; do
   if ! command -v "$cmd" &>/dev/null; then
     echo "$cmd could not be found, please install it first."
     exit 1
@@ -40,7 +40,7 @@ if [ -z "$WALLPAPER" ]; then
 fi
 
 # set wallpaper + generate pywal theme
-swww img "$WALLPAPER_PATH"
+awww img "$WALLPAPER_PATH"
 
 # apply appropriate theme based on user selection
 if [ "$THEME_MODE" = "light" ]; then
@@ -102,7 +102,7 @@ waybar &
 
 # set wallpaper to persist after reboot
 cat >"$STARTUP_DIR" <<EOF
-exec-once = swww img "$WALLPAPER_PATH"
+exec-once = awww img "$WALLPAPER_PATH"
 exec-once = gsettings set org.gnome.desktop.interface color-scheme "prefer-$THEME_MODE"
 EOF
 

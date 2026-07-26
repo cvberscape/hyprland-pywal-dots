@@ -14,7 +14,7 @@
     "break",
     {
       "type": "custom",
-      "format": "\u001b[35m  ✴  C V B E R S C Λ P E",
+      "format": "\u001b[35m  -  Z X S C Λ P E",
     },
     {
       "type": "custom",
@@ -22,7 +22,7 @@
     },
     {
       "type": "os",
-      "key": "   OS",
+      "key": "  󰣇 OS",
       "keyColor": "red",
       "format": "{2}",
     },

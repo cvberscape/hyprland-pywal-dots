@@ -31,7 +31,10 @@ font-feature = -calt
 font-feature = -dlig
 font-feature = -liga
 
-command = /usr/bin/fish
+quit-after-last-window-closed = true
+quit-after-last-window-closed-delay = 5m
+
+command = /usr/bin/nu
 
 #
 # # Spacing around the equals sign does not matter.
@@ -62,6 +65,9 @@ keybind = ctrl+h=previous_tab
 
 keybind = ctrl+k=scroll_page_up
 keybind = ctrl+j=scroll_page_down
+
+keybind = ctrl+shift+left=move_tab:-1
+keybind = ctrl+shift+right=move_tab:1
 
 #
 # # Some config options have unique syntaxes for their value,

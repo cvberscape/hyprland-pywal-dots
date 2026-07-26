@@ -4,7 +4,7 @@
   home.username = "cvberscape";
   home.homeDirectory = "/home/cvberscape";
 
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.11";
 
   nixpkgs.config.allowUnfree = true;
 
@@ -21,17 +21,14 @@
 
   home.packages = with pkgs; [
     android-studio
-    brave 
     watchman
     vesktop
-    heroic
     catppuccin-cursors.mochaSky
     code-cursor
-    claude-code
     carapace
     helix-db
-    bitwarden-desktop
     bitwarden-cli
+    heroic
   ];
 
     home.sessionVariables = {

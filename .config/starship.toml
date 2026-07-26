@@ -128,7 +128,7 @@ truncation_length = 2
 truncation_symbol = "□ "
 read_only = " ◈"
 use_os_path_sep = true
-style = "fg:#59718C"
+style = "fg:#C02D4B"
 format = '[$path]($style)[$read_only]($read_only_style)'
 repo_root_style = 'bold blue'
 repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) [△](bold bright-blue)'
@@ -151,7 +151,7 @@ disabled = false
 format = "[ $time]($style)"
 time_format = "%R"
 utc_time_offset = "local"
-style = "fg:#f0c0c9"
+style = "fg:#a7e1e3"
 
 [battery]
 format = "[ $percentage $symbol]($style)"
@@ -163,7 +163,7 @@ empty_symbol = "▃"
 
 [[battery.display]]
 threshold = 20
-style = "fg:#59718C"
+style = "fg:#C02D4B"
 
 [[battery.display]]
 threshold = 60
@@ -176,7 +176,7 @@ style = "italic dimmed yellow"
 [git_branch]
 format = " [$branch(:$remote_branch)]($style)"
 symbol = "[△](bold italic bright-blue)"
-style = "fg:#AF619C"
+style = "fg:#259A6A"
 truncation_symbol = "⋯"
 truncation_length = 11
 ignore_branches = ["main", "master"]

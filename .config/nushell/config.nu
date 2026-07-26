@@ -62,27 +62,27 @@ def posix [cmd: string] {
 
 let nix_profile = ($env.HOME | path join ".nix-profile")
 
-if ($nix_profile | path exists) {
-    # Keep system PATH first
-    $env.PATH = (
-        $env.PATH
-        | append $"($nix_profile)/bin"
-        | append $"($nix_profile)/sbin"
-    )
-
-    # Add only the Nix lib dir for libstdc++.so.6, after system libs
-    let nix_gcc_lib = (glob $"($nix_profile)/lib/libstdc++.so.6" | first | path dirname)
-
-    if ($nix_gcc_lib != null) {
-        $env.LD_LIBRARY_PATH = (
-            (if ($env.LD_LIBRARY_PATH? != null) { $env.LD_LIBRARY_PATH } else { "" })
-            | split row (char esep)
-            | append $nix_gcc_lib
-            | uniq
-            | str join (char esep)
-        )
-    }
-}
+#if ($nix_profile | path exists) {
+#    # Keep system PATH first
+#    $env.PATH = (
+#        $env.PATH
+#        | append $"($nix_profile)/bin"
+#        | append $"($nix_profile)/sbin"
+#    )
+#
+#    # Add only the Nix lib dir for libstdc++.so.6, after system libs
+#    let nix_gcc_lib = (glob $"($nix_profile)/lib/libstdc++.so.6" | first | path dirname)
+#
+#    if ($nix_gcc_lib != null) {
+#        $env.LD_LIBRARY_PATH = (
+#            (if ($env.LD_LIBRARY_PATH? != null) { $env.LD_LIBRARY_PATH } else { "" })
+#            | split row (char esep)
+#            | append $nix_gcc_lib
+#            | uniq
+#            | str join (char esep)
+#        )
+#    }
+#}
 
 export-env {
   $env.EDITOR = "nvim"
@@ -421,7 +421,7 @@ let menus = [
 ]
 
 def "nu-complete zoxide path" [context: string] {
-    let parts = $context | str trim --left | split row " " | skip 1 | each { str downcase }
+    let parts = $context | str trim --left | split row " " | skip 1 | each { str lowercase }
     let completions = (
         ^zoxide query --list --exclude $env.PWD -- ...$parts
             | lines
@@ -429,7 +429,7 @@ def "nu-complete zoxide path" [context: string] {
                 if ($parts | length) <= 1 {
                     $dir
                 } else {
-                    let dir_lower = $dir | str downcase
+                    let dir_lower = $dir | str lowercase
                     let rem_start = $parts | drop 1 | reduce --fold 0 { |part, rem_start|
                         ($dir_lower | str index-of --range $rem_start.. $part) + ($part | str length)
                     }
